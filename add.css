@@ -1,0 +1,373 @@
+/* add.css - Add Reservation Page Styling */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --success-color: #27ae60;
+    --accent-color: #9b59b6;
+    --warning-color: #f39c12;
+    --light-bg: #ecf0f1;
+    --dark-text: #2c3e50;
+    --light-text: #7f8c8d;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 15px 35px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s ease;
+    --border-radius: 15px;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) fixed !important;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px 0;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    pointer-events: none;
+}
+
+.container {
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    padding: 50px;
+    margin-top: 30px !important;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--accent-color), var(--success-color));
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+h2 {
+    color: var(--primary-color);
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 40px !important;
+    position: relative;
+    padding-bottom: 20px;
+    font-size: 2.2rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-color), var(--success-color));
+    border-radius: 2px;
+}
+
+h2::before {
+    content: '✚';
+    margin-right: 15px;
+    background: linear-gradient(135deg, var(--accent-color), var(--success-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.card {
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    background: white;
+    border-left: 5px solid var(--accent-color);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(155, 89, 182, 0.1), transparent);
+    transition: left 0.6s;
+}
+
+.card:hover::before {
+    left: 100%;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+}
+
+.form-control {
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    background: linear-gradient(135deg, #fafbfc, #ffffff);
+    position: relative;
+}
+
+.form-control:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.3rem rgba(155, 89, 182, 0.2);
+    background: white;
+    transform: translateY(-2px);
+}
+
+label {
+    font-weight: 700;
+    color: var(--dark-text);
+    margin-bottom: 10px;
+    display: block;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.mb-3 {
+    position: relative;
+}
+
+.mb-3:hover label {
+    color: var(--accent-color);
+    transform: translateX(5px);
+}
+
+/* Floating label effect */
+.form-control:placeholder-shown + label {
+    transform: translateY(40px);
+    opacity: 0;
+}
+
+.form-control:focus + label {
+    color: var(--accent-color);
+    transform: translateX(10px);
+}
+
+.btn {
+    border-radius: 12px;
+    padding: 15px 35px;
+    font-weight: 700;
+    border: none;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    font-size: 1.1rem;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.6s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+    color: white;
+    box-shadow: 0 6px 15px rgba(149, 165, 166, 0.4);
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #7f8c8d, #95a5a6);
+    color: white;
+    transform: translateY(-3px) translateX(-5px);
+    box-shadow: 0 10px 25px rgba(149, 165, 166, 0.5);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, var(--success-color), #229954);
+    color: white;
+    box-shadow: 0 6px 15px rgba(39, 174, 96, 0.4);
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #229954, var(--success-color));
+    color: white;
+    transform: translateY(-3px) translateX(5px);
+    box-shadow: 0 10px 25px rgba(39, 174, 96, 0.5);
+}
+
+.d-flex.justify-content-between {
+    margin-top: 40px;
+    padding-top: 25px;
+    border-top: 2px solid #f8f9fa;
+    position: relative;
+}
+
+/* Form animations */
+form {
+    animation: formSlideUp 0.8s ease-out;
+}
+
+@keyframes formSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Input field animations */
+.form-control {
+    animation: inputAppear 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+@keyframes inputAppear {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Stagger animation for inputs */
+.mb-3:nth-child(1) .form-control { animation-delay: 0.1s; }
+.mb-3:nth-child(2) .form-control { animation-delay: 0.2s; }
+.mb-3:nth-child(3) .form-control { animation-delay: 0.3s; }
+.mb-3:nth-child(4) .form-control { animation-delay: 0.4s; }
+.mb-3:nth-child(5) .form-control { animation-delay: 0.5s; }
+.mb-3:nth-child(6) .form-control { animation-delay: 0.6s; }
+
+/* Custom date input */
+input[type="date"] {
+    position: relative;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+}
+
+input[type="date"]::after {
+    content: '📅';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent-color);
+    font-size: 1.2em;
+    pointer-events: none;
+}
+
+/* Back button icon */
+.btn-secondary::before {
+    content: '← ';
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+/* Save button icon */
+.btn-success::after {
+    content: ' 💾';
+    margin-left: 8px;
+}
+
+/* Success message styling */
+.alert {
+    border-radius: var(--border-radius);
+    border: none;
+    box-shadow: var(--shadow);
+    margin-top: 20px;
+    background: linear-gradient(135deg, var(--success-color), #229954);
+    color: white;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        margin: 15px;
+        padding: 30px 20px;
+        border-radius: 12px;
+    }
+    
+    .card {
+        padding: 25px 20px !important;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+        margin-bottom: 30px !important;
+    }
+    
+    .btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .d-flex.justify-content-between {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .form-control {
+        padding: 12px 15px;
+        font-size: 1rem;
+    }
+}
+
+/* Loading state */
+.btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* Focus states for accessibility */
+.form-control:focus {
+    outline: none;
+}
+
+.btn:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}

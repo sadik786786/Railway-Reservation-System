@@ -1,0 +1,13 @@
+CREATE DATABASE railway_db;
+
+USE railway_db;
+
+CREATE TABLE reservations (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  passenger_name VARCHAR(100),
+  train_name VARCHAR(100),
+  source VARCHAR(100),
+  destination VARCHAR(100),
+  date_of_journey DATE,
+  seat_no VARCHAR(20)
+);
